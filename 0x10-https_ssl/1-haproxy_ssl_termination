@@ -37,17 +37,17 @@ defaults
 frontend jengreat.tech-http-frontend
 	bind	 *:80
 	http-request set-header X-Forwarded-Proto http
-	default_backend	 aysuarex.tech-backend
+	default_backend	 jengreat.tech-backend
 
 
 frontend  jengreat.tech-https-frontend
-	bind *:443 ssl crt /etc/ssl/aysuarex.tech.pem
+	bind *:443 ssl crt /etc/letsencrypt/live/www.jengreat.tech/fullchain.pem
 	http-request set-header X-Forwarded-Proto https
-        default_backend aysuarex.tech-backend
+        default_backend jengreat.tech-backend
 
 
 backend jengreat.tech-backend
         balance roundrobin
-        server 914-web-01 100.25.142.101:80 check
-        server 914-web-02 54.198.32.110:80 check
+        server 355651-web-01 100.25.142.101:80 check
+        server 355651-web-02 54.198.32.110:80 check
 # end of parameters
